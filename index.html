@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -1158,12 +1159,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <style>
         /* Fix: Show all Elementor animated elements in static mode */
-        .elementor-invisible {
-            opacity: 1 !important;
-            visibility: visible !important;
-            animation: none !important;
-            transform: none !important;
-        }
+        
+        .elementor-element-3065c23 .elementor-cta__title {
+        color: #ff832c !important; /* NEW DARKER ORANGE */
+        font-weight: 800 !important;
+        text-shadow: none !important;
+    }
+    
+    /* 2. Blob color and shape (Rounded/Golden) */
+    .elementor-element-e0bd3e7 img {
+        filter: brightness(1.2) saturate(0.8) hue-rotate(-10deg) !important;
+        border-radius: 50% !important;
+        object-fit: cover;
+    }
+    /* 3. REDUCE SPACING: Pull the badge DOWN closer to the blob */
+    .elementor-element-3065c23 {
+        top: 5% !important; /* Change this to 0% or 5% to move it even more */
+        left: 2% !important;
+    }
+    .elementor-element-b3dc339 .elementor-heading-title {
+        color: #ff832c !important;
+    }
+    /* 2. Badge Text Color (10+ Years) */
+    .elementor-element-3065c23 .elementor-cta__title {
+        color: #ff832c !important; 
+        font-weight: 800 !important;
+    }
+    /* 3. Badge & Blob Interaction */
+    .elementor-element-3065c23 {
+        top: 22% !important; 
+        margin-top: -160px !important; /* This PULLS the badge UP */
+        margin-left: -10px !important;
+        z-index: 99 !important;
+    }
+    .elementor-element-3065c23 .elementor-cta {
+        border-radius: 50% !important;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+    .elementor-element-e0bd3e7 img {
+        border-radius: 50% !important;
+    }
+     .kak-service-card ul li span,
+    .kak-icon-box,
+    .kak-industry-card {
+        color: #ff832c !important;
+        background: rgba(255, 131, 44, 0.1) !important; /* Soft orange background */
+        border-color: #ff832c !important;
+    }
+    
+    /* Force the specific gradient icon boxes to be your solid Orange */
+    .kak-icon-box[style] {
+        background: #ff832c !important;
+    }
+    /* Change the industry card background tint */
+    .kak-industry-card[style] {
+        background: rgba(255, 131, 44, 0.12) !important;
+        border: 1px solid rgba(255, 131, 44, 0.4) !important;
+    }
+    .elementor-element-b3dc339 .elementor-heading-title, 
+    .elementor-element-d41de45 .elementor-heading-title,
+    .elementor-element-29177f1 .elementor-heading-title {
+        color: #ff832c !important;
+    }
+    /* 2. FEATURED SERVICES ICONS ONLY */
+    /* 2. Only change the Business Names (Technest Innovations, etc.) */
+    .elementor-testimonial-job {
+        color: #ff832c !important;
+        opacity: 1 !important;
+    }
+    .elementor-element-15513871 .elementskit-info-box-icon img,
+    .elementor-element-15513871 .elementor-icon i {
+        filter: hue-rotate(-15deg) saturate(1.5) brightness(1.1) !important;
+        color: #ff832c !important;
+    }
+    /* 3. THE 10+ YEARS EXPERIENCE BADGE & BLOB */
+    .elementor-element-3065c23 .elementor-cta__title {
+        color: #ff832c !important; 
+        font-weight: 800 !important;
+    }
+    .elementor-element-3065c23 {
+        top: 22% !important;
+        z-index: 99 !important;
+    }
+    .elementor-element-3065c23 .elementor-cta {
+        background: #ffffff !important;
+        border-radius: 50% !important;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+    .elementor-element-e0bd3e7 img {
+        border-radius: 50% !important;
+    }
+    .elementor-element-29177f1 .elementor-heading-title {
+        color: #ff832c !important;
+    }
+    /* 2. Only change the Business Names (Technest Innovations, etc.) */
+    .elementor-testimonial-job {
+        color: #ff832c !important;
+        opacity: 1 !important;
+    }
+    .elementor-element-60067c2 {
+        background-color: #ff832c !important;
+    }
     </style>
 </head>
 
@@ -1253,7 +1349,7 @@
                                                     name="New Form" aria-label="New Form">
                                                     <div id="kak-hero-success"
                                                         style="display:none;padding:10px;background:#e8f5e9;border-radius:6px;color:#2e7d32;font-weight:600;font-size:13px;margin-bottom:8px;">
-                                                        &#10003; Thank you! We will contact you shortly. You can also reach us at +91 90524 60742.</div>
+                                                        &#10003; Thank you! We will contact you shortly. You can also reach us at +91 8886122278.</div>
                                                     <div class="elementor-form-fields-wrapper elementor-labels-above">
                                                         <div
                                                             class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required elementor-mark-required">
@@ -1836,7 +1932,7 @@
                             data-widget_type="image.default">
                             <div class="elementor-widget-container">
                                 <img loading="lazy" decoding="async" width="1024" height="966"
-                                    src="images/kak-logo2.png" class="attachment-large size-large wp-image-430"
+                                    src="kak-logo.png" class="attachment-large size-large wp-image-430"
                                     alt="KAK Instant Solutions Logo" style="max-width:250px;"
                                     onerror="this.onerror=null;this.src='https://lp.capsley.net/wp-content/uploads/2024/03/CAPSLEY-LOGO-blue-1024x966.png';" />
                             </div>
@@ -2276,6 +2372,14 @@
                     </div>
                 </div>
             </div>
+            <div class="elementor-element kak-services-blog-btn elementor-widget-button" style="text-align:center; padding-top:40px; width:100%;">
+        <div class="elementor-widget-container">
+            <a href="kak2.html" class="elementor-button" 
+               style="background-color: #ff832c !important; color: white !important; padding: 15px 40px; border-radius: 5px; font-weight: 700; text-decoration: none;">
+                EXPLORE OUR BLOG
+            </a>
+        </div>
+    </div>
         </section>
         <section
             class="elementor-section elementor-top-section elementor-element elementor-element-3cb1462b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -2395,7 +2499,7 @@
                             data-widget_type="image.default">
                             <div class="elementor-widget-container">
                                 <img loading="lazy" decoding="async" width="1024" height="1024"
-                                    src="images/kak-promo-card.png" class="attachment-large size-large wp-image-309"
+                                    src="Kak-promo-card.png" class="attachment-large size-large wp-image-309"
                                     alt="KAK Instant Solutions IT Services" sizes="(max-width: 1024px) 100vw, 1024px" />
                             </div>
                         </div>
@@ -2759,7 +2863,7 @@
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
                                     <a class="elementor-button elementor-button-link elementor-size-sm"
-                                        href="tel:9052460742">
+                                        href="tel:8886122278">
                                         <span class="elementor-button-content-wrapper">
                                             <span class="elementor-button-icon">
                                                 <svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt"
