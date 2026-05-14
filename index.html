@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="frame-src *;">
     <title>KAK Instant Solutions – Digital Marketing & IT Services</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="KAK Instant Solutions – Your digital growth partner. We offer digital marketing, SEO, custom software development, IT infrastructure, and B2B business support services." />
@@ -2836,6 +2837,214 @@
                 </div>
             </div>
         </section>
+  
+
+        <!-- ===== KAK OFFICE LOCATION MAP SECTION ===== -->
+        <style>
+            .kak-map-section {
+                padding: 70px 20px;
+                background: linear-gradient(135deg, #0a1128 0%, #1a2a5e 100%);
+            }
+            .kak-map-inner {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .kak-map-header {
+                text-align: center;
+                margin-bottom: 48px;
+            }
+            .kak-map-badge {
+                display: inline-block;
+                padding: 6px 20px;
+                background: linear-gradient(135deg, #ff9a44, #fc6076);
+                border-radius: 30px;
+                font-size: 0.82rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: #fff;
+                margin-bottom: 14px;
+            }
+            .kak-map-header h2 {
+                font-size: 2rem;
+                font-weight: 800;
+                color: #ffffff;
+                margin: 0 0 10px;
+            }
+            .kak-map-header p {
+                color: #a0b0d0;
+                font-size: 1rem;
+                margin: 0;
+            }
+            .kak-map-layout {
+                display: grid;
+                grid-template-columns: 1fr 1.6fr;
+                gap: 36px;
+                align-items: stretch;
+            }
+            .kak-address-card {
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.10);
+                border-radius: 20px;
+                padding: 36px 30px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+            .kak-address-card h3 {
+                font-size: 1.2rem;
+                font-weight: 800;
+                color: #ffffff;
+                margin: 0 0 4px;
+            }
+            .kak-addr-item {
+                display: flex;
+                gap: 14px;
+                align-items: flex-start;
+            }
+            .kak-addr-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: linear-gradient(135deg, #ff9a44, #fc6076);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.1rem;
+                flex-shrink: 0;
+                color: #fff;
+            }
+            .kak-addr-text strong {
+                display: block;
+                font-size: 0.82rem;
+                font-weight: 700;
+                color: #ff832c;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 3px;
+            }
+            .kak-addr-text span {
+                font-size: 0.95rem;
+                color: #a0b0d0;
+                line-height: 1.5;
+            }
+            .kak-addr-text a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            .kak-addr-text a:hover { color: #ff832c; }
+            .kak-directions-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 24px;
+                background: linear-gradient(135deg, #ff9a44, #fc6076);
+                color: #fff !important;
+                font-weight: 700;
+                font-size: 0.9rem;
+                border-radius: 12px;
+                text-decoration: none !important;
+                transition: opacity 0.2s, transform 0.2s;
+                margin-top: auto;
+            }
+            .kak-directions-btn:hover {
+                opacity: 0.9;
+                transform: translateY(-2px);
+            }
+            .kak-map-embed {
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+                min-height: 380px;
+            }
+            .kak-map-embed iframe {
+                width: 100%;
+                height: 100%;
+                min-height: 380px;
+                border: none;
+                display: block;
+            }
+            @media (max-width: 900px) {
+                .kak-map-layout { grid-template-columns: 1fr; }
+                .kak-map-embed { min-height: 300px; }
+                .kak-map-embed iframe { min-height: 300px; }
+            }
+            @media (max-width: 580px) {
+                .kak-map-section { padding: 50px 16px; }
+                .kak-map-header h2 { font-size: 1.5rem; }
+                .kak-address-card { padding: 24px 18px; }
+            }
+        </style>
+
+        <section class="kak-map-section">
+            <div class="kak-map-inner">
+                <div class="kak-map-header">
+                    <span class="kak-map-badge">📍 Find Us</span>
+                    <h2>Our Office Location</h2>
+                    <p>Visit us at Manayata Tech Park, one of Bengaluru's premier business hubs.</p>
+                </div>
+                <div class="kak-map-layout">
+
+                    <!-- Address Card -->
+                    <div class="kak-address-card">
+                        <h3>KAK Instant Solutions</h3>
+
+                        <div class="kak-addr-item">
+                            <div class="kak-addr-icon">🏢</div>
+                            <div class="kak-addr-text">
+                                <strong>Address</strong>
+                                <span>
+                                    Level-7, M, Far Green Heart Building,<br>
+                                    MS Ramaiah North City,<br>
+                                    Manayata Tech Park, Nagavara,<br>
+                                    Bengaluru, Karnataka – 560045
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="kak-addr-item">
+                            <div class="kak-addr-icon">📞</div>
+                            <div class="kak-addr-text">
+                                <strong>Phone</strong>
+                                <span><a href="tel:+919052460742">+91 90524 60742</a></span>
+                            </div>
+                        </div>
+
+                        <div class="kak-addr-item">
+                            <div class="kak-addr-icon">🕐</div>
+                            <div class="kak-addr-text">
+                                <strong>Business Hours</strong>
+                                <span>Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: Closed</span>
+                            </div>
+                        </div>
+
+                        <a class="kak-directions-btn"
+                           href="https://maps.app.goo.gl/96eVAxBr5JeuhgET9"
+                           target="_blank" rel="noopener noreferrer">
+                            🗺️ Get Directions
+                        </a>
+                    </div>
+
+                    <!-- Google Maps Embed — pinned to exact KAK office -->
+                    <div class="kak-map-embed">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0!2d77.6231!3d13.0511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae178f396f88f7%3A0xe7eda759f1bc2546!2sKAK%20INSTANT%20SOLUTIONS!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style="border:0; min-height:380px; display:block;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="KAK Instant Solutions Office - Manayata Tech Park, Bengaluru">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ===== END MAP SECTION ===== -->
         <section
             class="elementor-section elementor-top-section elementor-element elementor-element-423ffdf elementor-section-boxed elementor-section-height-default elementor-section-height-default"
             data-id="423ffdf" data-element_type="section" data-e-type="section"
