@@ -2839,8 +2839,17 @@
         </section>
         <!-- 
 =================================================================
+  HOW TO ADD THIS MAP TO YOUR index.html — 2 STEPS ONLY:
 
-        
+  STEP 1 → Open index.html, find this inside <head>:
+            <meta charset="UTF-8">
+            Add this line RIGHT AFTER it:
+            <meta http-equiv="Content-Security-Policy" content="frame-src *;">
+
+  STEP 2 → Search for:  elementor-element-423ffdf
+            Paste ALL the code below RIGHT BEFORE that <section> tag.
+
+  Done! Save and upload to your server.
 =================================================================
 -->
 
@@ -2861,7 +2870,7 @@
             .kak-map-badge {
                 display: inline-block;
                 padding: 6px 20px;
-                background: linear-gradient(135deg, #ff9a44, #fc6076);
+                background: linear-gradient(135deg, #ffd89b, #ffb347);
                 border-radius: 30px;
                 font-size: 0.82rem;
                 font-weight: 700;
@@ -2912,7 +2921,7 @@
                 width: 44px;
                 height: 44px;
                 border-radius: 12px;
-                background: linear-gradient(135deg, #ff9a44, #fc6076);
+                background: linear-gradient(135deg, #ffd89b, #ffb347);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -2924,7 +2933,7 @@
                 display: block;
                 font-size: 0.82rem;
                 font-weight: 700;
-                color: #ff832c;
+                color: #ffb347;
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
                 margin-bottom: 3px;
@@ -2939,13 +2948,13 @@
                 text-decoration: none;
                 font-weight: 600;
             }
-            .kak-addr-text a:hover { color: #ff832c; }
+            .kak-addr-text a:hover { color: #ffb347; }
             .kak-directions-btn {
                 display: inline-flex;
                 align-items: center;
                 gap: 8px;
                 padding: 12px 24px;
-                background: linear-gradient(135deg, #ff9a44, #fc6076);
+                background: linear-gradient(135deg, #ffd89b, #ffb347);
                 color: #fff !important;
                 font-weight: 700;
                 font-size: 0.9rem;
