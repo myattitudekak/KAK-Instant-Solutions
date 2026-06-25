@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="../Images/Logo.jpeg" />
+<title>Our Services — KAK Cleaning Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --pink:       #C2185B;
+    --pink-hover: #AD1457;
+    --pink-light: #FCE4EC;
+    --pink-tint:  #FFF5F8;
+    --pink-dark:  #880E4F;
+
+    --text:       #1C1C1C;
+    --text-mid:   #555555;
+    --text-soft:  #999999;
+
+    --bg:         #FFFFFF;
+    --bg-alt:     #F7F7F7;
+    --border:     #E8E8E8;
+    --shadow:     rgba(0,0,0,0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo img { height: 46px; width: 46px; object-fit: contain; border-radius: 50%; }
+  .logo-kak {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: 3px;
+    background: linear-gradient(135deg,#d81b60,#ad1457);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .logo-services {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px; color: #2d2d2d; line-height: 1; margin-top: 4px;
+    background: none !important;
+  }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--pink); }
+  .nav-cta {
+    background: var(--pink); color: #fff;
+    padding: 9px 22px; border-radius: 6px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--pink-hover); transform: translateY(-1px); }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero {
+    background: linear-gradient(135deg, #880E4F 0%, #C2185B 100%);
+    padding: 80px 6% 70px;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; right: -60px; top: -60px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .page-hero::after {
+    content: ''; position: absolute; left: 30%; bottom: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .page-hero-inner { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .breadcrumb {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px;
+  }
+  .breadcrumb a { color: #f8bbd0; text-decoration: none; }
+  .breadcrumb span { opacity: 0.4; }
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.12; color: #fff;
+    letter-spacing: -1px; margin-bottom: 18px;
+  }
+  .page-hero h1 em { color: #f8bbd0; font-style: normal; }
+  .page-hero p {
+    font-size: 17px; color: rgba(255,255,255,0.7);
+    max-width: 520px; margin: 0 auto; line-height: 1.75; font-weight: 300;
+  }
+
+  /* ─── SHARED ─── */
+  section { padding: 80px 6%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--pink); margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.25; color: var(--text);
+    margin-bottom: 14px; letter-spacing: -0.3px;
+  }
+  .section-sub {
+    font-size: 15px; color: var(--text-mid);
+    font-weight: 300; max-width: 520px; line-height: 1.75;
+  }
+
+  /* ─── SERVICES GRID ─── */
+  .services-section { background: var(--bg); }
+  .services-header { text-align: center; margin-bottom: 56px; }
+  .services-header .section-sub { margin: 0 auto; }
+
+  .service-block {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    margin-bottom: 28px; background: var(--bg);
+    transition: box-shadow 0.3s;
+  }
+  .service-block:hover { box-shadow: 0 12px 40px rgba(194,24,91,0.10); }
+  .service-block.reverse { direction: rtl; }
+  .service-block.reverse > * { direction: ltr; }
+
+  .service-visual {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 90px; min-height: 280px;
+    position: relative; overflow: hidden;
+  }
+  .service-visual.v1 { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); }
+  .service-visual.v2 { background: linear-gradient(135deg, #FFF5F8, #FCE4EC); }
+  .service-visual.v3 { background: linear-gradient(135deg, #F8BBD0, #F48FB1); }
+  .service-visual.v4 { background: linear-gradient(135deg, #FCE4EC, #EF9A9A 120%); }
+  .service-visual.v5 { background: linear-gradient(135deg, #FFF5F8, #F8BBD0); }
+  .service-visual.v6 { background: linear-gradient(135deg, #FCE4EC, #CE93D8 120%); }
+
+  .service-visual-tag {
+    position: absolute; top: 16px; left: 16px;
+    background: rgba(255,255,255,0.88); backdrop-filter: blur(6px);
+    color: var(--pink); font-size: 12px; font-weight: 600;
+    padding: 5px 12px; border-radius: 4px; letter-spacing: 0.5px;
+  }
+
+  .service-info { padding: 44px 48px; display: flex; flex-direction: column; justify-content: center; }
+  .service-tag {
+    display: inline-block; background: var(--pink-light);
+    color: var(--pink); font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 4px; margin-bottom: 16px; width: fit-content;
+  }
+  .service-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    color: var(--text); margin-bottom: 14px; line-height: 1.2;
+  }
+  .service-info p {
+    font-size: 15px; color: var(--text-mid);
+    line-height: 1.8; font-weight: 300; margin-bottom: 20px;
+  }
+  .service-includes {
+    list-style: none; margin-bottom: 28px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .service-includes li {
+    font-size: 14px; color: var(--text-mid);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .service-includes li::before {
+    content: '✓'; color: var(--pink);
+    font-weight: 700; font-size: 11px;
+    width: 20px; height: 20px; background: var(--pink-light);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .service-price-row {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .price-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: var(--pink);
+  }
+  .price-note { font-size: 13px; color: var(--text-soft); }
+  .btn-book {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--pink); color: #fff;
+    padding: 12px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    margin-left: auto;
+    box-shadow: 0 2px 12px rgba(194,24,91,0.20);
+  }
+  .btn-book:hover { background: var(--pink-hover); transform: translateY(-2px); }
+
+  /* ─── QUICK CARDS ─── */
+  .quick-section { background: var(--bg-alt); }
+  .quick-header { text-align: center; margin-bottom: 48px; }
+  .quick-header .section-sub { margin: 0 auto; }
+  .quick-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;
+  }
+  .quick-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px 24px;
+    transition: all 0.25s; cursor: pointer; position: relative; overflow: hidden;
+  }
+  .quick-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--pink);
+    transform: scaleX(0); transition: transform 0.25s; transform-origin: left;
+  }
+  .quick-card:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+  .quick-card:hover::before { transform: scaleX(1); }
+  .quick-icon { font-size: 32px; margin-bottom: 14px; }
+  .quick-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .quick-desc { font-size: 13px; color: var(--text-soft); line-height: 1.65; margin-bottom: 14px; }
+  .quick-price { font-size: 13px; font-weight: 600; color: var(--pink); }
+
+  /* ─── HOW IT WORKS ─── */
+  .how { background: var(--bg); text-align: center; }
+  .how-header { margin-bottom: 56px; }
+  .steps {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; position: relative;
+  }
+  .steps::before {
+    content: ''; position: absolute;
+    top: 28px; left: 14%; right: 14%; height: 1px;
+    background: repeating-linear-gradient(to right, #ddd 0, #ddd 8px, transparent 8px, transparent 16px);
+    z-index: 0;
+  }
+  .step {
+    background: var(--bg-alt); border: 1px solid var(--border);
+    border-radius: 12px; padding: 30px 18px;
+    position: relative; z-index: 1; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .step:hover { transform: translateY(-4px); box-shadow: 0 8px 28px var(--shadow); }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--pink-light); color: var(--pink);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--pink-light);
+  }
+  .step-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+  .step-desc  { font-size: 13px; color: var(--text-soft); line-height: 1.65; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--pink-tint);
+    border-top: 1px solid #f2d4df;
+    text-align: center; padding: 80px 6%;
+  }
+  .cta-section .section-title { color: var(--text); }
+  .cta-section .section-sub   { color: var(--text-mid); margin: 0 auto 36px; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--pink); color: #fff;
+    padding: 14px 30px; border-radius: 6px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 2px 12px rgba(194,24,91,0.20);
+  }
+  .btn-primary:hover { background: var(--pink-hover); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid #ddd; color: var(--text-mid);
+    padding: 13px 28px; border-radius: 6px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: all 0.2s; background: #fff;
+  }
+  .btn-outline:hover { border-color: var(--pink); color: var(--pink); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #1a1a1a; color: rgba(255,255,255,0.45);
+    padding: 56px 6% 28px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.4fr;
+    gap: 32px; margin-bottom: 44px; align-items: start;
+  }
+  .footer-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 14px; }
+  .footer-logo img { height: 44px; width: 44px; object-fit: contain; border-radius: 50%; }
+  .footer-logo .logo-kak  { color: #e8a0c0; font-size: 20px; font-weight: 700; background: none; -webkit-text-fill-color: #e8a0c0; }
+  .footer-logo .logo-text { color: rgba(255,255,255,0.45); font-size: 13px; margin-left: 4px; }
+  .footer-tagline  { font-size: 13px; line-height: 1.75; margin-bottom: 18px; }
+  .footer-contact  { font-size: 13px; display: flex; flex-direction: column; gap: 6px; }
+  .footer-contact a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-contact a:hover { color: rgba(255,255,255,0.8); }
+  .footer-col h4 { font-size: 11px; font-weight: 600; color: #fff; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: rgba(255,255,255,0.8); }
+  .footer-map-label {
+    font-size: 11px; font-weight: 600; color: #fff;
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .footer-map {
+    border-radius: 10px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    height: 180px;
+  }
+  .footer-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 22px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom p { font-size: 12px; }
+
+  /* ─── WHATSAPP ─── */
+  .whatsapp-float {
+    position: fixed; bottom: 26px; right: 26px; z-index: 999;
+    width: 54px; height: 54px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    text-decoration: none; font-size: 26px; transition: transform 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .service-block, .service-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .service-visual { min-height: 200px; }
+    .service-info { padding: 32px 28px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .steps::before { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .footer-map { height: 140px; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .quick-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .service-price-row { flex-direction: column; align-items: flex-start; }
+    .btn-book { margin-left: 0; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .page-hero-inner > * { animation: fadeUp 0.6s ease both; }
+  .breadcrumb   { animation-delay: 0.1s; }
+  .page-hero h1 { animation-delay: 0.2s; }
+  .page-hero p  { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="logo">
+    <img src="../Images/Logo.jpeg" alt="KAK Logo" />
+    <div class="logo-brand">
+      <span class="logo-kak">KAK</span>
+      <span class="logo-services">Cleaning Services</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="../About/About.html">About</a></li>
+    <li><a href="../index.html#reviews">Reviews</a></li>
+    <li><a href="../Contactus/Contactus.html">Contact</a></li>
+  </ul>
+  <a href="tel:+918886122287" class="nav-cta">📞 Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span>›</span>
+      <span>Services</span>
+    </div>
+    <h1>Professional Cleaning <em>Services</em></h1>
+    <p>From deep washroom scrubbing to full home restoration — every service is machine-powered, eco-safe, and backed by trained professionals.</p>
+  </div>
+</div>
+
+<!-- MAIN SERVICES -->
+<section class="services-section">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="section-label">What We Offer</div>
+      <div class="section-title">All Our Services</div>
+      <p class="section-sub">Each service is carried out by verified professionals using industrial-grade equipment and eco-friendly products.</p>
+    </div>
+
+    <!-- 1. Home Deep Cleaning -->
+    <div class="service-block" id="home-cleaning">
+      <div class="service-visual v1">
+        🏠
+        <span class="service-visual-tag">Most Popular</span>
+      </div>
+      <div class="service-info">
+        <span class="service-tag">Residential</span>
+        <h3>Home Deep Cleaning</h3>
+        <p>A complete top-to-bottom clean of your entire home. We scrub, disinfect, and restore every room — from ceilings to floors — leaving your home spotless and fresh.</p>
+        <ul class="service-includes">
+          <li>All rooms — bedrooms, living room, dining</li>
+          <li>Ceiling fans, light fixtures &amp; switchboards</li>
+          <li>Windows, grills &amp; door frames</li>
+          <li>Floor scrubbing &amp; mopping</li>
+          <li>Bathroom &amp; kitchen included</li>
+        </ul>
+        <div class="service-price-row">
+          <div>
+            <div class="price-tag">₹1,999+</div>
+            <div class="price-note">Based on home size</div>
+          </div>
+          <a href="tel:+918886122287" class="btn-book">📞 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Washroom Cleaning -->
+    <div class="service-block reverse" id="washroom-cleaning">
+      <div class="service-visual v2">🚿</div>
+      <div class="service-info">
+        <span class="service-tag">Bathroom</span>
+        <h3>Washroom Deep Cleaning</h3>
+        <p>Full sanitization of your washroom using hospital-grade disinfectants. We remove stubborn stains, limescale, and odours — leaving it hygienic and sparkling.</p>
+        <ul class="service-includes">
+          <li>Tile scrubbing — walls &amp; floor</li>
+          <li>Toilet, sink &amp; tap disinfection</li>
+          <li>Drain cleaning &amp; deodorizing</li>
+          <li>Mirror, exhaust fan &amp; fittings</li>
+          <li>Anti-fungal treatment available</li>
+        </ul>
+        <div class="service-price-row">
+          <div>
+            <div class="price-tag">₹499+</div>
+            <div class="price-note">Per bathroom</div>
+          </div>
+          <a href="tel:+918886122287" class="btn-book">📞 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Kitchen Cleaning -->
+    <div class="service-block" id="kitchen-cleaning">
+      <div class="service-visual v3">🍳</div>
+      <div class="service-info">
+        <span class="service-tag">Kitchen</span>
+        <h3>Kitchen Deep Cleaning</h3>
+        <p>Heavy degreasing, chimney cleaning, and full kitchen restoration. We tackle the toughest grease and grime so your kitchen is safe, clean, and odour-free.</p>
+        <ul class="service-includes">
+          <li>Stovetop &amp; chimney degreasing</li>
+          <li>Cabinet &amp; shelf wipe-down</li>
+          <li>Sink, taps &amp; drain scrubbing</li>
+          <li>Floor &amp; wall tile cleaning</li>
+          <li>Fridge exterior &amp; microwave cleaning</li>
+        </ul>
+        <div class="service-price-row">
+          <div>
+            <div class="price-tag">₹799+</div>
+            <div class="price-note">Based on kitchen size</div>
+          </div>
+          <a href="tel:+918886122287" class="btn-book">📞 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Sofa Cleaning -->
+    <div class="service-block reverse" id="sofa-cleaning">
+      <div class="service-visual v4">🛋️</div>
+      <div class="service-info">
+        <span class="service-tag">Upholstery</span>
+        <h3>Sofa &amp; Upholstery Cleaning</h3>
+        <p>Steam and shampoo cleaning for fabric and leather sofas. Removes deep-seated dust, stains, pet hair, and allergens — making your seating fresh and hygienic again.</p>
+        <ul class="service-includes">
+          <li>Fabric &amp; leather sofa cleaning</li>
+          <li>Stain &amp; odour removal</li>
+          <li>Dust mite treatment</li>
+          <li>Cushion &amp; armrest cleaning</li>
+          <li>Carpet &amp; rug cleaning available</li>
+        </ul>
+        <div class="service-price-row">
+          <div>
+            <div class="price-tag">₹399+</div>
+            <div class="price-note">Per seating unit</div>
+          </div>
+          <a href="tel:+918886122287" class="btn-book">📞 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Water Tank Cleaning -->
+    <div class="service-block" id="tank-cleaning">
+      <div class="service-visual v5">💧</div>
+      <div class="service-info">
+        <span class="service-tag">Water Safety</span>
+        <h3>Water Tank Cleaning</h3>
+        <p>Mechanized sump and overhead tank cleaning with full disinfection. We remove algae, sludge, and harmful bacteria — ensuring safe, clean drinking water for your family.</p>
+        <ul class="service-includes">
+          <li>Sump &amp; overhead tank cleaning</li>
+          <li>Algae &amp; sediment removal</li>
+          <li>High-pressure washing</li>
+          <li>Full disinfection treatment</li>
+          <li>Certificate of cleaning provided</li>
+        </ul>
+        <div class="service-price-row">
+          <div>
+            <div class="price-tag">₹599+</div>
+            <div class="price-note">Based on tank capacity</div>
+          </div>
+          <a href="tel:+918886122287" class="btn-book">📞 Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Office Cleaning -->
+    <div class="service-block reverse" id="office-cleaning">
+      <div class="service-visual v6">🏢</div>
+      <div class="service-info">
+        <span class="service-tag">Commercial</span>
+        <h3>Office &amp; Commercial Cleaning</h3>
+        <p>Professional housekeeping and deep cleaning for offices, shops, clinics, and apartments. Available as a one-time service or on a regular contract basis.</p>
+        <ul class="service-includes">
+          <li>Workstations, cabins &amp; common areas</li>
+          <li>Restroom sanitization</li>
+          <li>Floor mopping &amp; vacuuming</li>
+          <li>Glass &amp; partition cleaning</li>
+          <li>Daily / weekly / monthly contracts</li>
+        </ul>
+        <div class="service-price-row">
+          <div>
+            <div class="price-tag">Custom</div>
+            <div class="price-note">Call for a free quote</div>
+          </div>
+          <a href="tel:+918886122287" class="btn-book">📞 Get Quote</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADDITIONAL QUICK SERVICES -->
+<section class="quick-section">
+  <div class="section-inner">
+    <div class="quick-header">
+      <div class="section-label">Also Available</div>
+      <div class="section-title">More Services</div>
+      <p class="section-sub">Smaller, targeted cleaning services to keep every part of your home fresh.</p>
+    </div>
+    <div class="quick-grid">
+      <div class="quick-card">
+        <div class="quick-icon">💨</div>
+        <div class="quick-name">Fan &amp; Fixture Cleaning</div>
+        <p class="quick-desc">Ceiling fans, light fixtures, AC vents and switchboards cleaned thoroughly.</p>
+        <div class="quick-price">Call for price</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">🪟</div>
+        <div class="quick-name">Window &amp; Glass Cleaning</div>
+        <p class="quick-desc">Streak-free cleaning of all windows, grills, sliding doors and glass partitions.</p>
+        <div class="quick-price">Call for price</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">🌿</div>
+        <div class="quick-name">Balcony Cleaning</div>
+        <p class="quick-desc">Bird droppings, dust, and grime cleared from your balcony floors and railings.</p>
+        <div class="quick-price">Call for price</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">🛏️</div>
+        <div class="quick-name">Mattress Cleaning</div>
+        <p class="quick-desc">Vacuum and UV treatment to remove dust mites, sweat stains and allergens.</p>
+        <div class="quick-price">Call for price</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">🧱</div>
+        <div class="quick-name">Post-Construction Cleaning</div>
+        <p class="quick-desc">Full removal of cement, paint and debris after renovation or construction work.</p>
+        <div class="quick-price">Call for price</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">🏥</div>
+        <div class="quick-name">Patient Care Manpower</div>
+        <p class="quick-desc">Trained and caring manpower for patient assistance — hygienic, reliable and trustworthy.</p>
+        <div class="quick-price">Call for price</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-inner">
+    <div class="how-header">
+      <div class="section-label">Simple Process</div>
+      <div class="section-title">How It Works</div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Call or Book Online</div>
+        <p class="step-desc">Choose your service and tell us your preferred date and time slot.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Free Quote</div>
+        <p class="step-desc">We assess your space and provide a clear, no-surprise price upfront.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Team Arrives</div>
+        <p class="step-desc">Our verified crew arrives on time with all machines and supplies.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Sparkling Results</div>
+        <p class="step-desc">Inspect the work — we don't leave until you're 100% satisfied.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label">Ready to Book?</div>
+  <div class="section-title">Get a free quote today</div>
+  <p class="section-sub">Call us — we respond within minutes and can arrange same-day cleaning.</p>
+  <div class="cta-buttons">
+    <a href="tel:+918886122287" class="btn-primary">📞 +91 88861 22287</a>
+    <a href="../Contactus/Contactus.html" class="btn-outline">Send a Message</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="../index.html" class="footer-logo">
+        <img src="../Images/Logo.jpeg" alt="KAK Logo" />
+        <span class="logo-kak">KAK</span><span class="logo-text">Cleaning Services</span>
+      </a>
+      <p class="footer-tagline">Your trusted partner for professional home &amp; office cleaning in Tirupati. Trained teams, professional machines.</p>
+      <div class="footer-contact">
+        <a href="tel:+918886122287">📞 +91 8886122287</a>
+        <a href="mailto:hello@sparkclean.in">✉️ hello@sparkclean.in</a>
+        <span>📍 Kadapa - Tirupati Rd, near PS4 Pure Veg Restaurant, Korlagunta, Tirupati, AP 517501</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#washroom-cleaning">Washroom Cleaning</a></li>
+        <li><a href="#home-cleaning">Home Deep Clean</a></li>
+        <li><a href="#kitchen-cleaning">Kitchen Cleaning</a></li>
+        <li><a href="#sofa-cleaning">Sofa Cleaning</a></li>
+        <li><a href="#tank-cleaning">Water Tank</a></li>
+        <li><a href="#office-cleaning">Office Cleaning</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="../About/About.html">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="tel:+918886122287">Book a Service</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="../Contactus/Contactus.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-map-label">Find Us</p>
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.2!2d79.4279514!3d13.6396686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b797373fc85%3A0x2cc496da7ecf6dcc!2sKAK%20Cleaning%20Services%20-Tirupati!5e0!3m2!1sen!2sin!4v1700000000000"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="KAK Cleaning Services Location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 KAK Cleaning Services. All rights reserved.</p>
+    <p>Privacy Policy · Terms of Service</p>
+  </div>
+</footer>
+
+</body>
+</html>
