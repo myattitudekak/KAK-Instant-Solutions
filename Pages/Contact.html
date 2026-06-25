@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - KAK Group</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+    /* Global Reset & Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333333; background-color: #ffffff;
+      line-height: 1.6; overflow-x: hidden;
+    }
+
+    /* Scroll Reveal */
+    .reveal-element {
+      opacity: 0; transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .reveal-element.active { opacity: 1; transform: translateY(0); }
+
+    /* ========================================= */
+    /* BACK BUTTON                               */
+    /* ========================================= */
+    .back-button {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333333;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      z-index: 100;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .back-button:hover {
+      border-color: #ff832c;
+      color: #ff832c;
+      transform: translateX(-5px);
+      box-shadow: 0 8px 25px rgba(255, 131, 44, 0.15);
+    }
+
+    /* ========================================= */
+    /* HERO SECTION                              */
+    /* ========================================= */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(180deg, #f8f9fb 0%, #ffffff 100%);
+      padding: 180px 20px 100px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hero-accent {
+      position: absolute;
+      top: -150px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,131,44,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,131,44,0.1);
+      color: #e06318;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .hero-heading {
+      font-size: 4.5rem; font-weight: 800;
+      margin-bottom: 20px; letter-spacing: -2px;
+      color: #111111; line-height: 1.1;
+    }
+    .hero-heading span { color: #ff832c; }
+
+    .hero-description {
+      font-size: 1.25rem; font-weight: 400; color: #666666;
+      max-width: 700px; margin: 0 auto; line-height: 1.8;
+    }
+
+    /* ========================================= */
+    /* CONTACT SECTION WRAPPER                   */
+    /* ========================================= */
+    .contact-section {
+      padding: 100px 20px;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    /* ========================================= */
+    /* LEFT: CONTACT INFO BLOCKS                 */
+    /* ========================================= */
+    .contact-info-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .info-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 15px;
+    }
+
+    .info-header p {
+      font-size: 1.05rem;
+      color: #666666;
+      margin-bottom: 30px;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 30px;
+      background: #f8f9fb;
+      border: 1px solid #eaeaea;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      border-color: #ff832c;
+      background: #ffffff;
+      box-shadow: 0 15px 40px rgba(255,131,44,0.08);
+      transform: translateY(-5px);
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255,131,44,0.1);
+      color: #ff832c;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+
+    .info-content p, .info-content a {
+      font-size: 1rem;
+      color: #555555;
+      text-decoration: none;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .info-content a:hover {
+      color: #ff832c;
+    }
+
+    /* ========================================= */
+    /* RIGHT: CONTACT FORM                       */
+    /* ========================================= */
+    .contact-form-container {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 30px;
+      padding: 50px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-group { margin-bottom: 24px; }
+    .form-group.full-width { grid-column: span 2; }
+
+    .form-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 16px 20px;
+      background: #f8f9fb;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #333333;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      background: #ffffff;
+      border-color: #ff832c;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255,131,44,0.1);
+    }
+
+    select.form-control { cursor: pointer; appearance: none; }
+
+    textarea.form-control { resize: vertical; min-height: 150px; }
+
+    .submit-btn {
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      padding: 18px 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .submit-btn:hover {
+      background: #ff832c;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255,131,44,0.25);
+    }
+
+    /* ========================================= */
+    /* RESPONSIVE DESIGN                         */
+    /* ========================================= */
+    @media (max-width: 992px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-banner { padding: 130px 20px 80px; }
+      .hero-heading { font-size: 3rem; }
+      
+      .contact-section { padding: 80px 20px; }
+
+      .form-grid { grid-template-columns: 1fr; gap: 16px; }
+      .form-group.full-width { grid-column: span 1; }
+      .contact-form-container { padding: 40px 25px; }
+
+      .info-header h2 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero-banner">
+    <a href="/index.html" class="back-button">
+      <i data-lucide="arrow-left" width="20" height="20"></i> Return
+    </a>
+
+    <div class="hero-accent"></div>
+
+    <div class="hero-content reveal-element">
+      <span class="hero-badge">Get In Touch</span>
+      <h1 class="hero-heading">We'd Love To <span>Hear From You</span></h1>
+      <p class="hero-description">
+        Whether you have a question about our services, need assistance with a project, or want to explore partnership opportunities, our team is ready to answer all your questions.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- CONTACT CONTENT SECTION                   -->
+  <!-- ========================================= -->
+  <section class="contact-section" id="contact-info">
+    <div class="container">
+      
+      <div class="contact-grid">
+        
+        <!-- LEFT: INFO BLOCKS -->
+        <div class="contact-info-wrapper reveal-element">
+          
+          <div class="info-header">
+            <h2>Contact Details</h2>
+            <p>Reach out to us directly using the information below, or fill out the form and we'll get back to you promptly.</p>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="phone-call" width="24" height="24"></i>
+            </div>
+            <div class="info-content">
+              <h3>Phone Number</h3>
+              <a href="tel:+918886122278">+91 8886122278</a>
+              <a href="tel:+918886122278">Call us directly anytime</a>
+            </div>
+          </div>
+
+          <!-- Email Card -->
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="mail" width="24" height="24"></i>
+            </div>
+            <div class="info-content">
+              <h3>Email Addresses</h3>
+              <a href="mailto:kakindia.in">kakinidia.in</a>
+              
+            </div>
+          </div>
+
+          <!-- Location Card -->
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="map-pin" width="24" height="24"></i>
+            </div>
+            <div class="info-content">
+              <h3>Corporate Office</h3>
+              <p>Level-7,M, Far Green Heart Building,<br>
+                 MS Ramaiah North City, Manayata Tech Park,<br>
+                 Nagavara, Bengaluru, Karnataka 560045</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: CONTACT FORM -->
+        <div class="contact-form-container reveal-element" style="transition-delay: 0.2s;">
+          <form>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" placeholder="John" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+91 8886122278" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">Subject / Inquiry Type</label>
+                <select class="form-control" required>
+                  <option value="" disabled selected>How can we help you?</option>
+                  <option value="tech">Web & Software Services (KAK Technologies)</option>
+                  <option value="cleaning">Cleaning & Facility Services (KAK Cleaning)</option>
+                  <option value="ads">Advertising & Branding (KAK Advertisers)</option>
+                  <option value="other">General Inquiry / Partnerships</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">Your Message</label>
+                <textarea class="form-control" placeholder="Please provide details about your inquiry..." required></textarea>
+              </div>
+            </div>
+
+            <div class="submit-wrap" style="margin-top: 15px;">
+              <button type="submit" class="submit-btn">
+                Send Message <i data-lucide="send" width="20"></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    lucide.createIcons();
+
+    // Scroll Reveal
+    const revealElements = document.querySelectorAll('.reveal-element');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - KAK Group</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+    /* Global Reset & Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333333; background-color: #ffffff;
+      line-height: 1.6; overflow-x: hidden;
+    }
+
+    /* Scroll Reveal */
+    .reveal-element {
+      opacity: 0; transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .reveal-element.active { opacity: 1; transform: translateY(0); }
+
+    /* ========================================= */
+    /* BACK BUTTON                               */
+    /* ========================================= */
+    .back-button {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333333;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      z-index: 100;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .back-button:hover {
+      border-color: #ff832c;
+      color: #ff832c;
+      transform: translateX(-5px);
+      box-shadow: 0 8px 25px rgba(255, 131, 44, 0.15);
+    }
+
+    /* ========================================= */
+    /* HERO SECTION                              */
+    /* ========================================= */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(180deg, #f8f9fb 0%, #ffffff 100%);
+      padding: 180px 20px 100px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hero-accent {
+      position: absolute;
+      top: -150px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,131,44,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,131,44,0.1);
+      color: #e06318;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .hero-heading {
+      font-size: 4.5rem; font-weight: 800;
+      margin-bottom: 20px; letter-spacing: -2px;
+      color: #111111; line-height: 1.1;
+    }
+    .hero-heading span { color: #ff832c; }
+
+    .hero-description {
+      font-size: 1.25rem; font-weight: 400; color: #666666;
+      max-width: 700px; margin: 0 auto; line-height: 1.8;
+    }
+
+    /* ========================================= */
+    /* SECTION WRAPPERS                          */
+    /* ========================================= */
+    .section-wrapper {
+      padding: 100px 20px;
+      background: #ffffff;
+    }
+
+    .section-wrapper.bg-light {
+      background: #fcfcfc;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #666666;
+    }
+
+    .title-underline {
+      width: 60px;
+      height: 4px;
+      background: #ff832c;
+      border-radius: 2px;
+      margin: 20px auto 0;
+    }
+
+    /* ========================================= */
+    /* CURRENT OPENINGS (JOB CARDS)              */
+    /* ========================================= */
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .job-card {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 24px;
+      padding: 40px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .job-card:hover {
+      border-color: #ff832c;
+      box-shadow: 0 15px 40px rgba(255,131,44,0.08);
+      transform: translateY(-5px);
+    }
+
+    .job-badge {
+      display: inline-block;
+      background: #111111;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .job-card:hover .job-badge {
+      background: #ff832c;
+    }
+
+    .job-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 15px;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .job-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: #555555;
+      font-weight: 500;
+    }
+
+    .job-meta-item i {
+      color: #ff832c;
+    }
+
+    .job-desc {
+      font-size: 1rem;
+      color: #666666;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .apply-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #111111;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid #111111;
+      padding: 10px 24px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .job-card:hover .apply-btn-outline {
+      background: #ff832c;
+      color: #ffffff;
+      border-color: #ff832c;
+    }
+
+    /* ========================================= */
+    /* INTERNSHIP PROGRAM BANNER                 */
+    /* ========================================= */
+    .internship-banner {
+      background: #111111;
+      border-radius: 30px;
+      padding: 60px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    .internship-accent {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,131,44,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .internship-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      color: #ffffff;
+    }
+
+    .internship-content h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .internship-content h2 span {
+      color: #ff832c;
+    }
+
+    .internship-content p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .internship-features {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .feature-item i { color: #ff832c; }
+
+    .internship-action {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .btn-solid-orange {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ff832c;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 18px 36px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(255,131,44,0.2);
+    }
+
+    .btn-solid-orange:hover {
+      background: #e06318;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255,131,44,0.3);
+    }
+
+    /* ========================================= */
+    /* APPLY ONLINE FORM                         */
+    /* ========================================= */
+    .apply-form-container {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 30px;
+      padding: 60px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-group { margin-bottom: 24px; }
+    .form-group.full-width { grid-column: span 2; }
+
+    .form-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 16px 20px;
+      background: #f8f9fb;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #333333;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      background: #ffffff;
+      border-color: #ff832c;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255,131,44,0.1);
+    }
+
+    select.form-control { cursor: pointer; appearance: none; }
+
+    textarea.form-control { resize: vertical; min-height: 120px; }
+
+    .file-upload-box {
+      display: block;
+      border: 2px dashed #d0d0d0;
+      background: #fcfcfc;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .file-upload-box:hover {
+      border-color: #ff832c;
+      background: rgba(255,131,44,0.02);
+    }
+
+    .file-upload-box i {
+      display: inline-block;
+      color: #ff832c;
+      margin-bottom: 12px;
+    }
+
+    .file-upload-box span {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111111;
+    }
+
+    .file-upload-box small {
+      display: block;
+      color: #888888;
+      margin-top: 6px;
+    }
+
+    .file-upload-box input[type="file"] { display: none; }
+
+    .submit-wrap {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .submit-btn {
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      padding: 18px 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      background: #ff832c;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255,131,44,0.25);
+    }
+
+    /* ========================================= */
+    /* RESPONSIVE DESIGN                         */
+    /* ========================================= */
+    @media (max-width: 992px) {
+      .job-grid { grid-template-columns: 1fr; }
+      .internship-banner { flex-direction: column; text-align: center; padding: 50px 30px; }
+      .internship-features { justify-content: center; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-banner { padding: 130px 20px 80px; }
+      .hero-heading { font-size: 3rem; }
+      
+      .section-wrapper { padding: 80px 20px; }
+      .section-title { font-size: 2.2rem; }
+
+      .form-grid { grid-template-columns: 1fr; gap: 16px; }
+      .form-group.full-width { grid-column: span 1; }
+      .apply-form-container { padding: 40px 25px; }
+
+      .internship-content h2 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero-banner">
+    <a href="/index.html" class="back-button">
+      <i data-lucide="arrow-left" width="20" height="20"></i> Return
+    </a>
+
+    <div class="hero-accent"></div>
+
+    <div class="hero-content reveal-element">
+      <span class="hero-badge">Careers at KAK</span>
+      <h1 class="hero-heading">Build Your <span>Future</span></h1>
+      <p class="hero-description">
+        Join a fast-growing, dynamic group of companies dedicated to excellence and innovation. We are always looking for passionate individuals to join our expanding team.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- CURRENT OPENINGS SECTION                  -->
+  <!-- ========================================= -->
+  <section class="section-wrapper" id="openings">
+    <div class="container">
+      
+      <div class="section-header reveal-element">
+        <h2 class="section-title">Current Openings</h2>
+        <p class="section-subtitle">Find the perfect role across our group companies.</p>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="job-grid">
+        
+        <!-- Job 1 -->
+        <div class="job-card reveal-element">
+          <span class="job-badge">KAK Technologies</span>
+          <h3 class="job-title">Senior Full Stack Developer</h3>
+          <div class="job-meta">
+            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Hyderabad, India</div>
+            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          </div>
+          <p class="job-desc">
+            We are looking for an experienced Full Stack Developer to lead the architecture and development of scalable web applications for our enterprise clients.
+          </p>
+          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-card reveal-element" style="transition-delay: 0.1s;">
+          <span class="job-badge">KAK Cleaning Services</span>
+          <h3 class="job-title">Operations Manager</h3>
+          <div class="job-meta">
+            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Hyderabad, India</div>
+            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          </div>
+          <p class="job-desc">
+            Seeking a highly organized Operations Manager to oversee facility management projects, coordinate field staff, and ensure exceptional service delivery.
+          </p>
+          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card reveal-element">
+          <span class="job-badge">KAK Advertisers</span>
+          <h3 class="job-title">Creative Art Director</h3>
+          <div class="job-meta">
+            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Remote / Hybrid</div>
+            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          </div>
+          <p class="job-desc">
+            Join our branding division to lead visual design campaigns. Must have a strong portfolio demonstrating expertise in brand identity and marketing collateral.
+          </p>
+          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="job-card reveal-element" style="transition-delay: 0.1s;">
+          <span class="job-badge">KAK Instant Solutions</span>
+          <h3 class="job-title">Business Development Executive</h3>
+          <div class="job-meta">
+            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Hyderabad, India</div>
+            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          </div>
+          <p class="job-desc">
+            Drive corporate growth by identifying new business opportunities, building client relationships, and expanding our market presence across various sectors.
+          </p>
+          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- INTERNSHIP PROGRAMS SECTION               -->
+  <!-- ========================================= -->
+  <section class="section-wrapper bg-light" id="internships">
+    <div class="container">
+      
+      <div class="internship-banner reveal-element">
+        <div class="internship-accent"></div>
+        
+        <div class="internship-content">
+          <h2>Kickstart Your Career <span>With Us</span></h2>
+          <p>
+            Our immersive 6-month internship programs are designed to provide students and recent graduates with hands-on experience, professional mentorship, and a direct pathway to full-time employment within the KAK Group.
+          </p>
+          <div class="internship-features">
+            <div class="feature-item"><i data-lucide="check-circle-2"></i> Live Projects</div>
+            <div class="feature-item"><i data-lucide="check-circle-2"></i> Expert Mentorship</div>
+            <div class="feature-item"><i data-lucide="check-circle-2"></i> Pre-Placement Offers</div>
+          </div>
+        </div>
+
+        <div class="internship-action">
+          <a href="#apply" class="btn-solid-orange">
+            Apply for Internship <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- APPLY ONLINE SECTION                      -->
+  <!-- ========================================= -->
+  <section class="section-wrapper" id="apply">
+    <div class="container">
+      
+      <div class="section-header reveal-element">
+        <h2 class="section-title">Apply Online</h2>
+        <p class="section-subtitle">Take the next step. Submit your application below.</p>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="apply-form-container reveal-element">
+        <form>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Position Applying For</label>
+              <select class="form-control" required>
+                <option value="" disabled selected>Select a position...</option>
+                <optgroup label="Current Openings">
+                  <option value="full-stack">Senior Full Stack Developer</option>
+                  <option value="ops-manager">Operations Manager</option>
+                  <option value="art-director">Creative Art Director</option>
+                  <option value="bde">Business Development Executive</option>
+                </optgroup>
+                <optgroup label="Internship Programs">
+                  <option value="intern-tech">Tech & Software Internship</option>
+                  <option value="intern-marketing">Digital Marketing Internship</option>
+                  <option value="intern-management">Business Management Internship</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="general">General Application</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Upload Resume (PDF, DOCX)</label>
+              <label class="file-upload-box" for="resume-upload">
+                <i data-lucide="upload-cloud" width="40" height="40"></i>
+                <span>Click to browse or drag and drop your file here</span>
+                <small>Maximum file size: 5MB</small>
+                <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" required>
+              </label>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Cover Letter / Additional Note</label>
+              <textarea class="form-control" placeholder="Tell us why you are a great fit for KAK Group..."></textarea>
+            </div>
+          </div>
+
+          <div class="submit-wrap">
+            <button type="submit" class="submit-btn">
+              Submit Application <i data-lucide="send" width="20"></i>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    lucide.createIcons();
+
+    // Scroll Reveal
+    const revealElements = document.querySelectorAll('.reveal-element');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+  </script>
+</body>
+</html>
