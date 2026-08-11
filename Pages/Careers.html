@@ -166,6 +166,9 @@
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .job-card:hover {
@@ -185,6 +188,7 @@
       padding: 6px 14px;
       border-radius: 20px;
       margin-bottom: 20px;
+      align-self: flex-start;
     }
 
     .job-card:hover .job-badge {
@@ -201,7 +205,7 @@
     .job-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px;
       margin-bottom: 25px;
       padding-bottom: 25px;
       border-bottom: 1px solid #f0f0f0;
@@ -210,10 +214,13 @@
     .job-meta-item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.95rem;
-      color: #555555;
-      font-weight: 500;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: #444444;
+      font-weight: 600;
+      background: #f8f9fb;
+      padding: 6px 12px;
+      border-radius: 8px;
     }
 
     .job-meta-item i {
@@ -230,14 +237,16 @@
     .apply-btn-outline {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       color: #111111;
       font-weight: 700;
       text-decoration: none;
       border: 2px solid #111111;
-      padding: 10px 24px;
+      padding: 12px 24px;
       border-radius: 50px;
       transition: all 0.3s ease;
+      align-self: flex-start;
     }
 
     .job-card:hover .apply-btn-outline {
@@ -393,43 +402,6 @@
 
     textarea.form-control { resize: vertical; min-height: 120px; }
 
-    .file-upload-box {
-      display: block;
-      border: 2px dashed #d0d0d0;
-      background: #fcfcfc;
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .file-upload-box:hover {
-      border-color: #ff832c;
-      background: rgba(255,131,44,0.02);
-    }
-
-    .file-upload-box i {
-      display: inline-block;
-      color: #ff832c;
-      margin-bottom: 12px;
-    }
-
-    .file-upload-box span {
-      display: block;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #111111;
-    }
-
-    .file-upload-box small {
-      display: block;
-      color: #888888;
-      margin-top: 6px;
-    }
-
-    .file-upload-box input[type="file"] { display: none; }
-
     .submit-wrap {
       text-align: center;
       margin-top: 40px;
@@ -456,6 +428,19 @@
       box-shadow: 0 15px 30px rgba(255,131,44,0.25);
     }
 
+    /* Notification Alerts */
+    .alert-success {
+      display: none;
+      background: #e6f9f0;
+      border: 1px solid #10b981;
+      color: #065f46;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      font-weight: 600;
+      text-align: center;
+    }
+
     /* ========================================= */
     /* RESPONSIVE DESIGN                         */
     /* ========================================= */
@@ -477,6 +462,7 @@
       .apply-form-container { padding: 40px 25px; }
 
       .internship-content h2 { font-size: 2.2rem; }
+      .back-button { top: 20px; left: 20px; }
     }
   </style>
 </head>
@@ -494,7 +480,7 @@
       <span class="hero-badge">Careers at KAK</span>
       <h1 class="hero-heading">Build Your <span>Future</span></h1>
       <p class="hero-description">
-        Join a fast-growing, dynamic group of companies dedicated to excellence and innovation. We are always looking for passionate individuals to join our expanding team.
+        Join a fast-growing, dynamic group of companies dedicated to excellence and innovation. All open roles offer flexible work modes: Bangalore location with Remote, Onsite, or Hybrid options!
       </p>
     </div>
   </section>
@@ -507,66 +493,112 @@
       
       <div class="section-header reveal-element">
         <h2 class="section-title">Current Openings</h2>
-        <p class="section-subtitle">Find the perfect role across our group companies.</p>
+        <p class="section-subtitle">Explore opportunities across our group companies. All positions based in Bangalore with Remote / Onsite / Hybrid flexibility.</p>
         <div class="title-underline"></div>
       </div>
 
       <div class="job-grid">
         
-        <!-- Job 1 -->
+        <!-- Job 1: Frontend Developer -->
         <div class="job-card reveal-element">
-          <span class="job-badge">KAK Technologies</span>
-          <h3 class="job-title">Senior Full Stack Developer</h3>
-          <div class="job-meta">
-            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Hyderabad, India</div>
-            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          <div>
+            <span class="job-badge">KAK Technologies</span>
+            <h3 class="job-title">Frontend Developer</h3>
+            <div class="job-meta">
+              <div class="job-meta-item"><i data-lucide="map-pin" width="16"></i> Bangalore, India</div>
+              <div class="job-meta-item"><i data-lucide="laptop" width="16"></i> Remote / Onsite / Hybrid</div>
+              <div class="job-meta-item"><i data-lucide="clock" width="16"></i> Full-Time</div>
+            </div>
+            <p class="job-desc">
+              We are seeking a skilled Frontend Developer proficient in React, modern JavaScript (ES6+), HTML5, and responsive CSS styling. You will build high-performance web interfaces, collaborate with design teams, and craft seamless user experiences.
+            </p>
           </div>
-          <p class="job-desc">
-            We are looking for an experienced Full Stack Developer to lead the architecture and development of scalable web applications for our enterprise clients.
-          </p>
-          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+          <a href="#apply" onclick="selectPosition('Frontend Developer')" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
         </div>
 
-        <!-- Job 2 -->
+        <!-- Job 2: Senior Full Stack Developer -->
         <div class="job-card reveal-element" style="transition-delay: 0.1s;">
-          <span class="job-badge">KAK Cleaning Services</span>
-          <h3 class="job-title">Operations Manager</h3>
-          <div class="job-meta">
-            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Hyderabad, India</div>
-            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          <div>
+            <span class="job-badge">KAK Technologies</span>
+            <h3 class="job-title">Senior Full Stack Developer</h3>
+            <div class="job-meta">
+              <div class="job-meta-item"><i data-lucide="map-pin" width="16"></i> Bangalore, India</div>
+              <div class="job-meta-item"><i data-lucide="laptop" width="16"></i> Remote / Onsite / Hybrid</div>
+              <div class="job-meta-item"><i data-lucide="clock" width="16"></i> Full-Time</div>
+            </div>
+            <p class="job-desc">
+              We are looking for an experienced Full Stack Developer to lead the architecture, microservices, database design, API integrations, and frontend features for scalable enterprise software solutions.
+            </p>
           </div>
-          <p class="job-desc">
-            Seeking a highly organized Operations Manager to oversee facility management projects, coordinate field staff, and ensure exceptional service delivery.
-          </p>
-          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+          <a href="#apply" onclick="selectPosition('Senior Full Stack Developer')" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
         </div>
 
-        <!-- Job 3 -->
+        <!-- Job 3: Business Development Executive -->
         <div class="job-card reveal-element">
-          <span class="job-badge">KAK Advertisers</span>
-          <h3 class="job-title">Creative Art Director</h3>
-          <div class="job-meta">
-            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Remote / Hybrid</div>
-            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          <div>
+            <span class="job-badge">KAK Instant Solutions</span>
+            <h3 class="job-title">Business Development Executive</h3>
+            <div class="job-meta">
+              <div class="job-meta-item"><i data-lucide="map-pin" width="16"></i> Bangalore, India</div>
+              <div class="job-meta-item"><i data-lucide="laptop" width="16"></i> Remote / Onsite / Hybrid</div>
+              <div class="job-meta-item"><i data-lucide="clock" width="16"></i> Full-Time</div>
+            </div>
+            <p class="job-desc">
+              Drive corporate revenue growth by identifying business opportunities, conducting client pitch presentations, negotiating commercial contracts, and building strong corporate client relationships.
+            </p>
           </div>
-          <p class="job-desc">
-            Join our branding division to lead visual design campaigns. Must have a strong portfolio demonstrating expertise in brand identity and marketing collateral.
-          </p>
-          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+          <a href="#apply" onclick="selectPosition('Business Development Executive')" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
         </div>
 
-        <!-- Job 4 -->
+        <!-- Job 4: Lead Generation Specialist -->
         <div class="job-card reveal-element" style="transition-delay: 0.1s;">
-          <span class="job-badge">KAK Instant Solutions</span>
-          <h3 class="job-title">Business Development Executive</h3>
-          <div class="job-meta">
-            <div class="job-meta-item"><i data-lucide="map-pin" width="18"></i> Hyderabad, India</div>
-            <div class="job-meta-item"><i data-lucide="clock" width="18"></i> Full-Time</div>
+          <div>
+            <span class="job-badge">KAK Instant Solutions</span>
+            <h3 class="job-title">Lead Generation Specialist</h3>
+            <div class="job-meta">
+              <div class="job-meta-item"><i data-lucide="map-pin" width="16"></i> Bangalore, India</div>
+              <div class="job-meta-item"><i data-lucide="laptop" width="16"></i> Remote / Onsite / Hybrid</div>
+              <div class="job-meta-item"><i data-lucide="clock" width="16"></i> Full-Time</div>
+            </div>
+            <p class="job-desc">
+              Seeking a results-focused Lead Generation Specialist to research market prospects, execute multi-channel cold outreach, prospect via LinkedIn, and deliver qualified B2B sales leads.
+            </p>
           </div>
-          <p class="job-desc">
-            Drive corporate growth by identifying new business opportunities, building client relationships, and expanding our market presence across various sectors.
-          </p>
-          <a href="#apply" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+          <a href="#apply" onclick="selectPosition('Lead Generation Specialist')" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+        </div>
+
+        <!-- Job 5: Operations Manager -->
+        <div class="job-card reveal-element">
+          <div>
+            <span class="job-badge">KAK Cleaning Services</span>
+            <h3 class="job-title">Operations Manager</h3>
+            <div class="job-meta">
+              <div class="job-meta-item"><i data-lucide="map-pin" width="16"></i> Bangalore, India</div>
+              <div class="job-meta-item"><i data-lucide="laptop" width="16"></i> Remote / Onsite / Hybrid</div>
+              <div class="job-meta-item"><i data-lucide="clock" width="16"></i> Full-Time</div>
+            </div>
+            <p class="job-desc">
+              Seeking an Operations Manager to coordinate facility management operations, manage field personnel deployments, streamline logistics, and ensure customer satisfaction across service projects.
+            </p>
+          </div>
+          <a href="#apply" onclick="selectPosition('Operations Manager')" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
+        </div>
+
+        <!-- Job 6: Creative Art Director -->
+        <div class="job-card reveal-element" style="transition-delay: 0.1s;">
+          <div>
+            <span class="job-badge">KAK Advertisers</span>
+            <h3 class="job-title">Creative Art Director</h3>
+            <div class="job-meta">
+              <div class="job-meta-item"><i data-lucide="map-pin" width="16"></i> Bangalore, India</div>
+              <div class="job-meta-item"><i data-lucide="laptop" width="16"></i> Remote / Onsite / Hybrid</div>
+              <div class="job-meta-item"><i data-lucide="clock" width="16"></i> Full-Time</div>
+            </div>
+            <p class="job-desc">
+              Lead brand visual strategies, direct creative marketing campaigns, conceptualize digital brand assets, and oversee visual identity execution across print and digital channels.
+            </p>
+          </div>
+          <a href="#apply" onclick="selectPosition('Creative Art Director')" class="apply-btn-outline">Apply Now <i data-lucide="arrow-right" width="18"></i></a>
         </div>
 
       </div>
@@ -586,7 +618,7 @@
         <div class="internship-content">
           <h2>Kickstart Your Career <span>With Us</span></h2>
           <p>
-            Our immersive 6-month internship programs are designed to provide students and recent graduates with hands-on experience, professional mentorship, and a direct pathway to full-time employment within the KAK Group.
+            Our 6-month internship programs (Bangalore • Remote / Onsite / Hybrid) provide hands-on experience, expert mentorship, and direct pathways to full-time roles across KAK Group companies.
           </p>
           <div class="internship-features">
             <div class="feature-item"><i data-lucide="check-circle-2"></i> Live Projects</div>
@@ -596,7 +628,7 @@
         </div>
 
         <div class="internship-action">
-          <a href="#apply" class="btn-solid-orange">
+          <a href="#apply" onclick="selectPosition('Tech Internship')" class="btn-solid-orange">
             Apply for Internship <i data-lucide="arrow-right"></i>
           </a>
         </div>
@@ -614,71 +646,80 @@
       
       <div class="section-header reveal-element">
         <h2 class="section-title">Apply Online</h2>
-        <p class="section-subtitle">Take the next step. Submit your application below.</p>
+        <p class="section-subtitle">Submit your details below to apply directly.</p>
         <div class="title-underline"></div>
       </div>
 
       <div class="apply-form-container reveal-element">
-        <form>
+        
+        <div id="form-alert" class="alert-success" style="display: none;">
+          🎉 Thank you! Your application has been submitted successfully. Our HR team will contact you shortly!
+        </div>
+
+        <form id="careers-form" action="https://api.web3forms.com/submit" method="POST">
           
+          <!-- Web3Forms Configuration -->
+          <input type="hidden" name="access_key" value="7c45e3b4-3260-4212-bf6d-a1de3899540a">
+          <input type="hidden" name="subject" id="subject-header" value="New Job Application Received">
+          <input type="hidden" name="from_name" value="KAK Group Careers">
+
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label">First Name</label>
-              <input type="text" class="form-control" placeholder="John" required>
+              <input type="text" id="first-name" name="First Name" class="form-control" placeholder="John" required>
             </div>
             <div class="form-group">
               <label class="form-label">Last Name</label>
-              <input type="text" class="form-control" placeholder="Doe" required>
+              <input type="text" id="last-name" name="Last Name" class="form-control" placeholder="Doe" required>
             </div>
 
             <div class="form-group">
               <label class="form-label">Email Address</label>
-              <input type="email" class="form-control" placeholder="john@example.com" required>
+              <!-- Name is 'email' so FormSubmit automatically uses it as the Reply-To address -->
+              <input type="email" id="applicant-email" name="email" class="form-control" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
               <label class="form-label">Phone Number</label>
-              <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+              <input type="tel" id="applicant-phone" name="Phone Number" class="form-control" placeholder="+91 XXXXX XXXXX" required>
             </div>
 
             <div class="form-group full-width">
               <label class="form-label">Position Applying For</label>
-              <select class="form-control" required>
+              <select id="position-select" name="Position Applied For" class="form-control" required>
                 <option value="" disabled selected>Select a position...</option>
-                <optgroup label="Current Openings">
-                  <option value="full-stack">Senior Full Stack Developer</option>
-                  <option value="ops-manager">Operations Manager</option>
-                  <option value="art-director">Creative Art Director</option>
-                  <option value="bde">Business Development Executive</option>
+                <optgroup label="Current Openings (Bangalore • Remote / Onsite / Hybrid)">
+                  <option value="Frontend Developer">Frontend Developer</option>
+                  <option value="Senior Full Stack Developer">Senior Full Stack Developer</option>
+                  <option value="Business Development Executive">Business Development Executive</option>
+                  <option value="Lead Generation Specialist">Lead Generation Specialist</option>
+                  <option value="Operations Manager">Operations Manager</option>
+                  <option value="Creative Art Director">Creative Art Director</option>
                 </optgroup>
                 <optgroup label="Internship Programs">
-                  <option value="intern-tech">Tech & Software Internship</option>
-                  <option value="intern-marketing">Digital Marketing Internship</option>
-                  <option value="intern-management">Business Management Internship</option>
+                  <option value="Tech Internship">Tech & Software Internship</option>
+                  <option value="Marketing Internship">Digital Marketing Internship</option>
+                  <option value="Management Internship">Business Management Internship</option>
                 </optgroup>
                 <optgroup label="Other">
-                  <option value="general">General Application</option>
+                  <option value="General Application">General Application</option>
                 </optgroup>
               </select>
             </div>
 
             <div class="form-group full-width">
-              <label class="form-label">Upload Resume (PDF, DOCX)</label>
-              <label class="file-upload-box" for="resume-upload">
-                <i data-lucide="upload-cloud" width="40" height="40"></i>
-                <span>Click to browse or drag and drop your file here</span>
-                <small>Maximum file size: 5MB</small>
-                <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" required>
-              </label>
+              <label class="form-label">Resume Link (Google Drive / OneDrive / LinkedIn / Portfolio)</label>
+              <input type="url" id="resume-link" name="Resume Link" class="form-control" placeholder="https://drive.google.com/file/d/... or LinkedIn profile URL" required>
+              <small style="color: #777777; margin-top: 6px; display: block;">Paste a shareable link to your resume or LinkedIn profile.</small>
             </div>
 
             <div class="form-group full-width">
               <label class="form-label">Cover Letter / Additional Note</label>
-              <textarea class="form-control" placeholder="Tell us why you are a great fit for KAK Group..."></textarea>
+              <textarea id="cover-letter" name="Cover Letter" class="form-control" placeholder="Tell us why you are a great fit for KAK Group..."></textarea>
             </div>
           </div>
 
           <div class="submit-wrap">
-            <button type="submit" class="submit-btn">
+            <button type="submit" id="submit-btn" class="submit-btn">
               Submit Application <i data-lucide="send" width="20"></i>
             </button>
           </div>
@@ -691,9 +732,10 @@
 
   <!-- JAVASCRIPT -->
   <script>
+    // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Scroll Reveal
+    // Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.reveal-element');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -708,14 +750,90 @@
     
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            targetEl.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
             });
-        });
+          }
+        }
+      });
     });
+
+    // Auto-select position from Apply Now button clicks
+    function selectPosition(positionVal) {
+      const selectEl = document.getElementById('position-select');
+      if (selectEl) {
+        for (let i = 0; i < selectEl.options.length; i++) {
+          if (selectEl.options[i].value.toLowerCase().includes(positionVal.toLowerCase()) || 
+              selectEl.options[i].text.toLowerCase().includes(positionVal.toLowerCase())) {
+            selectEl.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    // Web3Forms AJAX Submission (Prevents page reload)
+    const form = document.getElementById('careers-form');
+    const formAlert = document.getElementById('form-alert');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Dynamically update subject
+        const firstName = document.getElementById('first-name').value;
+        const lastName = document.getElementById('last-name').value;
+        const position = document.getElementById('position-select').value;
+        document.getElementById('subject-header').value = `Application for ${position} from ${firstName} ${lastName}`;
+
+        submitBtn.innerHTML = 'Submitting... <i data-lucide="loader" class="spin"></i>';
+        lucide.createIcons();
+
+        const formData = new FormData(form);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(async (response) => {
+          const json = await response.json();
+          formAlert.style.display = 'block';
+          if (response.status == 200) {
+            formAlert.className = 'alert-success';
+            formAlert.style.background = '#e6f9f0';
+            formAlert.style.color = '#065f46';
+            formAlert.style.border = '1px solid #10b981';
+            formAlert.innerText = '🎉 Thank you! Your application has been submitted successfully. Our HR team will contact you shortly!';
+            form.reset();
+          } else {
+            formAlert.style.background = '#fee2e2';
+            formAlert.style.color = '#991b1b';
+            formAlert.style.border = '1px solid #ef4444';
+            formAlert.innerText = json.message || 'Something went wrong. Please try again.';
+          }
+        })
+        .catch(error => {
+          formAlert.style.display = 'block';
+          formAlert.style.background = '#fee2e2';
+          formAlert.style.color = '#991b1b';
+          formAlert.style.border = '1px solid #ef4444';
+          formAlert.innerText = 'Network error. Please try again later.';
+        })
+        .finally(() => {
+          submitBtn.innerHTML = 'Submit Application <i data-lucide="send" width="20"></i>';
+          lucide.createIcons();
+          formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    }
   </script>
 </body>
 </html>
