@@ -270,6 +270,19 @@
       box-shadow: 0 15px 30px rgba(255,131,44,0.25);
     }
 
+    /* Notification Alerts */
+    .alert-success {
+      display: none;
+      background: #e6f9f0;
+      border: 1px solid #10b981;
+      color: #065f46;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      font-weight: 600;
+      text-align: center;
+    }
+
     /* ========================================= */
     /* RESPONSIVE DESIGN                         */
     /* ========================================= */
@@ -345,7 +358,7 @@
             </div>
             <div class="info-content">
               <h3>Email Addresses</h3>
-              <a href="mailto:info@kakindia.in">info@kakinidia.in</a>
+              <a href="mailto:Info@kakindia.in">Info@kakindia.in</a>
               
             </div>
           </div>
@@ -357,7 +370,7 @@
             </div>
             <div class="info-content">
               <h3>Corporate Office</h3>
-              <p>Level-7,M, Far Green Heart Building,<br>
+              <p>Level-7,M-Far Green Heart Building,<br>
                  MS Ramaiah North City, Manayata Tech Park,<br>
                  Nagavara, Bengaluru, Karnataka 560045</p>
             </div>
@@ -367,46 +380,53 @@
 
         <!-- RIGHT: CONTACT FORM -->
         <div class="contact-form-container reveal-element" style="transition-delay: 0.2s;">
-          <form>
-            
+          <div id="form-alert" class="alert-success" style="display: none;"></div>
+          
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms Configuration -->
+            <!-- Paste your Access Key here -->
+            <input type="hidden" name="access_key" value="8a22b8d0-1eb2-4683-9d92-b1d7430f0569">
+            <input type="hidden" name="subject" id="subject-header" value="New Contact Us Inquiry">
+            <input type="hidden" name="from_name" value="KAK Group Contact">
+
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label">First Name</label>
-                <input type="text" class="form-control" placeholder="John" required>
+                <input type="text" id="first-name" name="First Name" class="form-control" placeholder="John" required>
               </div>
               <div class="form-group">
                 <label class="form-label">Last Name</label>
-                <input type="text" class="form-control" placeholder="Doe" required>
+                <input type="text" id="last-name" name="Last Name" class="form-control" placeholder="Doe" required>
               </div>
 
               <div class="form-group">
                 <label class="form-label">Email Address</label>
-                <input type="email" class="form-control" placeholder="john@example.com" required>
+                <input type="email" id="email" name="Email" class="form-control" placeholder="john@example.com" required>
               </div>
               <div class="form-group">
                 <label class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" placeholder="+91 8886122278" required>
+                <input type="tel" id="phone" name="Phone Number" class="form-control" placeholder="+91 8886122278" required>
               </div>
 
               <div class="form-group full-width">
                 <label class="form-label">Subject / Inquiry Type</label>
-                <select class="form-control" required>
+                <select id="inquiry-type" name="Inquiry Type" class="form-control" required>
                   <option value="" disabled selected>How can we help you?</option>
-                  <option value="tech">Web & Software Services (KAK Technologies)</option>
-                  <option value="cleaning">Cleaning & Facility Services (KAK Cleaning)</option>
-                  <option value="ads">Advertising & Branding (KAK Advertisers)</option>
-                  <option value="other">General Inquiry / Partnerships</option>
+                  <option value="Web & Software Services (KAK Technologies)">Web & Software Services (KAK Technologies)</option>
+                  <option value="Cleaning & Facility Services (KAK Cleaning)">Cleaning & Facility Services (KAK Cleaning)</option>
+                  <option value="Advertising & Branding (KAK Advertisers)">Advertising & Branding (KAK Advertisers)</option>
+                  <option value="General Inquiry / Partnerships">General Inquiry / Partnerships</option>
                 </select>
               </div>
 
               <div class="form-group full-width">
                 <label class="form-label">Your Message</label>
-                <textarea class="form-control" placeholder="Please provide details about your inquiry..." required></textarea>
+                <textarea id="message" name="Message" class="form-control" placeholder="Please provide details about your inquiry..." required></textarea>
               </div>
             </div>
 
             <div class="submit-wrap" style="margin-top: 15px;">
-              <button type="submit" class="submit-btn">
+              <button type="submit" id="submit-btn" class="submit-btn">
                 Send Message <i data-lucide="send" width="20"></i>
               </button>
             </div>
@@ -435,6 +455,62 @@
     }, { threshold: 0.1 });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Web3Forms AJAX Submission
+    const contactForm = document.getElementById('contact-form');
+    const formAlert = document.getElementById('form-alert');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Update subject dynamically
+        const firstName = document.getElementById('first-name').value;
+        const lastName = document.getElementById('last-name').value;
+        const inquiryType = document.getElementById('inquiry-type').value;
+        document.getElementById('subject-header').value = `New Inquiry: ${inquiryType} from ${firstName} ${lastName}`;
+
+        submitBtn.innerHTML = 'Sending... <i data-lucide="loader" class="spin"></i>';
+        lucide.createIcons();
+
+        const formData = new FormData(contactForm);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(async (response) => {
+          const json = await response.json();
+          formAlert.style.display = 'block';
+          if (response.status == 200) {
+            formAlert.className = 'alert-success';
+            formAlert.style.background = '#e6f9f0';
+            formAlert.style.color = '#065f46';
+            formAlert.style.border = '1px solid #10b981';
+            formAlert.innerText = '🎉 Thank you! Your message has been sent successfully. We will get back to you shortly!';
+            contactForm.reset();
+          } else {
+            formAlert.style.background = '#fee2e2';
+            formAlert.style.color = '#991b1b';
+            formAlert.style.border = '1px solid #ef4444';
+            formAlert.innerText = json.message || 'Something went wrong. Please try again.';
+          }
+        })
+        .catch(error => {
+          formAlert.style.display = 'block';
+          formAlert.style.background = '#fee2e2';
+          formAlert.style.color = '#991b1b';
+          formAlert.style.border = '1px solid #ef4444';
+          formAlert.innerText = 'Network error. Please try again later.';
+        })
+        .finally(() => {
+          submitBtn.innerHTML = 'Send Message <i data-lucide="send" width="20"></i>';
+          lucide.createIcons();
+          formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    }
   </script>
 </body>
 </html>
