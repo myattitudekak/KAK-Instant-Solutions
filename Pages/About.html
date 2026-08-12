@@ -81,6 +81,36 @@
     .back-btn svg { width: 16px; height: 16px; }
 
     /* =============================================*/
+    /* DOWNLOAD BUTTON (Top Right)                  */
+    /* =============================================*/
+    .download-btn {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: #111111;
+      border: 1px solid #111111;
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .download-btn:hover {
+      background: #ff832c;
+      border-color: #ff832c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 131, 44, 0.25);
+    }
+    .download-btn svg { width: 16px; height: 16px; }
+
+    /* =============================================*/
     /* HERO BANNER                                  */
     /* =============================================*/
     .hero-banner {
@@ -632,6 +662,7 @@
 
       .section-heading { font-size: 2rem; }
       .back-btn { top: 15px; left: 15px; padding: 8px 16px; font-size: 0.8rem; }
+      .download-btn { top: 15px; right: 15px; padding: 8px 16px; font-size: 0.8rem; }
     }
 
     @media (max-width: 480px) {
@@ -644,6 +675,11 @@
   <!-- BACK BUTTON -->
   <a href="../index.html" class="back-btn" id="back-btn">
     <i data-lucide="arrow-left"></i> Back to Home
+  </a>
+
+  <!-- DOWNLOAD BUTTON -->
+  <a href="KAK_Profile.pdf" class="download-btn" download target="_blank">
+    <i data-lucide="download"></i> Download Profile
   </a>
 
   <!-- =============================== -->
